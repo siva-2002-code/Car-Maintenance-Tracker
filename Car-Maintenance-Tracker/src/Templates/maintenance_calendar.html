@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Calendar</title>
+    <style>
+        /* Full Page Background Image */
+        body {
+            background-image: url("{{ url_for('static', filename='images/maintenance_calendar.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* Container for Form */
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        label {
+            margin: 0 10px;
+        }
+
+        input[type="date"], button {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #ff6600;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Table Styling */
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dashboard Button Styling */
+        .dashboard-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .dashboard-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Maintenance Calendar</h2>
+
+<form method="POST" action="/maintenance_calendar">
+    <!-- You can add input fields here if needed -->
+</form>
+
+<!-- Display events in a table format -->
+<table>
+    <thead>
+        <tr>
+            <th>Service Type</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.title }}</td>
+                <td>{{ event.start }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Return to Dashboard Button -->
+<a href="{{ url_for('dashboard') }}" class="dashboard-btn">Return to Dashboard</a>
+
+</body>
+</html>
