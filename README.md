@@ -24,9 +24,7 @@ git clone https://github.com/siva-2002-code/Car-Maintenance-Tracker
 
 And then navigate into the project directory: 
 
-cd Car-Maintenance-Tracker
-
-cd src 
+cd Car-Maintenance-Tracker/src 
 
 Now installing the required dependencies using: 
 
